@@ -6,10 +6,10 @@ export class Todo {
   private text: TodoText;
   private checked: boolean;
 
-  constructor(props: {id: TodoId; text: TodoText}) {
+  constructor(props: {id: TodoId; text: TodoText; checked?: boolean}) {
     this.id = props.id;
     this.text = props.text;
-    this.checked = false;
+    this.checked = props.checked ?? false;
   }
 
   changeText = (text: TodoText) => {

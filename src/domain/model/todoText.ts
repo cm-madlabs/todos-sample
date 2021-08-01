@@ -1,4 +1,4 @@
-import {TodoValidationError} from '../../../util/error/error';
+import {TodoValidationError} from '../../util/error/error';
 
 const limit = 100;
 

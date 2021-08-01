@@ -1,5 +1,5 @@
 import validator from 'validator';
-import {TodoValidationError} from '../../../util/error/error';
+import {TodoValidationError} from '../../util/error/error';
 
 export class TodoId {
   constructor(public readonly value: string) {

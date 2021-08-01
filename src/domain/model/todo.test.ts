@@ -1,5 +1,5 @@
 import {Todo} from './todo';
-import {TodoValidationError} from '../../../util/error/error';
+import {TodoValidationError} from '../../util/error/error';
 import {TodoId} from './todoId';
 import {TodoText} from './todoText';
 

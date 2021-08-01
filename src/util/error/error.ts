@@ -51,6 +51,21 @@ export class TodoForbiddenError extends TodosError {
     this.message = 'the specified todo is not found';
   }
 }
+export class TodoRepositoryError extends TodosError {
+  constructor(message: string) {
+    super(message);
+
+    Object.defineProperty(this, 'name', {
+      configurable: true,
+      enumerable: false,
+      value: 'InternalServerError',
+      writable: true,
+    });
+
+    console.error(message);
+    this.message = 'internal server error';
+  }
+}
 
 export class UnauthorizedError extends TodosError {}
 
