@@ -89,8 +89,13 @@ export class TodoDDBDataStore implements ITodoRepository {
       new UpdateCommand({
         TableName: this.tableName,
         Key: {id: todo.getId().value},
+        ExpressionAttributeNames: {
+          '#text': 'text',
+          '#checked': 'checked',
+          '#updatedAt': 'updatedAt',
+        },
         UpdateExpression:
-          'set text = :text, checked = :checked, updatedAt = :updatedAt',
+          'set #text = :text, #checked = :checked, #updatedAt = :updatedAt',
         ExpressionAttributeValues: {
           ':text': todo.getText().value,
           ':checked': todo.getChecked(),
