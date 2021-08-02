@@ -1,0 +1,129 @@
+openapi: '3.0.2'
+info:
+  title: todos
+  version: '1.0'
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  '/todos/{todoId}':
+    parameters:
+      - schema:
+          type: string
+        name: todoId
+        in: path
+        required: true
+    get:
+      summary: Get Todo Info by Todo ID
+      tags: []
+      responses:
+        '200':
+          description: Todo Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TodoRes'
+              examples:
+                Get Todo Buy eggs:
+                  value:
+                    id: f8b7d76b-d184-4d01-9656-52366d654541
+                    text: Buy eggs
+                    checked: false
+        '404':
+          description: Todo Not Found
+      operationId: get-users-todoId
+      description: Retrieve the information of the todo with the matching todo ID.
+    patch:
+      summary: Update User Information
+      operationId: patch-todos-todoId
+      responses:
+        '200':
+          description: Todo Updated
+          content:
+            application/json:
+              examples:
+                Updated Todo:
+                  value:
+                    id: ec7565cc-74b6-4d5c-8309-bdcf34bde0dc
+                    text: Buy apples
+                    checked: false
+              schema:
+                $ref: '#/components/schemas/TodoRes'
+        '404':
+          description: Todo Not Found
+      description: Update the information of an existing todo.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                text:
+                  type: string
+                checked:
+                  type: string
+            examples:
+              Update text:
+                value:
+                  id: 6543d183-bbfb-4b48-acdd-8abfa505d6ba
+                  text: Buy apples
+              Update checked:
+                value:
+                  id: 6543d183-bbfb-4b48-acdd-8abfa505d6ba
+                  checked: true
+              Update text & checked:
+                value:
+                  id: 6543d183-bbfb-4b48-acdd-8abfa505d6ba
+                  text: Buy apples
+                  checked: true
+        description: Patch user properties to update.
+    delete:
+      summary: ''
+      operationId: delete-todos-todoId
+      responses:
+        '204':
+          description: No Content
+      description: Delete the todo.
+  /todos:
+    post:
+      summary: Create New User
+      operationId: post-todo
+      responses:
+        '200':
+          description: User Created
+          content:
+            application/json:
+              examples: {}
+              schema:
+                $ref: '#/components/schemas/TodoRes'
+        '400':
+          description: Bad Request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                text:
+                  type: string
+              required:
+                - text
+            examples:
+              Create todo:
+                value:
+                  text: Buy eggs
+        description: Post the necessary fields for the API to create a new user.
+      description: Create a new todo.
+    parameters: []
+components:
+  schemas:
+    TodoRes:
+      title: TodoRes
+      type: object
+      properties:
+        id:
+          type: string
+        text:
+          type: string
+        checked:
+          type: boolean
+      description: Todo Response

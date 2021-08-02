@@ -19,6 +19,8 @@ export class UserApplication {
     const todo = new Todo({id, text});
 
     await this.todoRepository.create(todo);
+
+    return todo;
   };
 
   find = async (props: {id: string}) => {
@@ -49,6 +51,8 @@ export class UserApplication {
     }
 
     await this.todoRepository.update(todo);
+
+    return todo;
   };
 
   delete = async (props: {id: string}) => {
