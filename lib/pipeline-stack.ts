@@ -9,7 +9,7 @@ export class PipelineStack extends Stack {
     const pipeline = new CodePipeline(this, 'Pipeline', {
       synth: new ShellStep('Synth', {
         input: CodePipelineSource.connection(
-          'cx-madlabs/todos-sample',
+          'cm-madlabs/todos-sample',
           'main',
           {
             connectionArn: process.env.REPO_CONNECTION_ARN!,
