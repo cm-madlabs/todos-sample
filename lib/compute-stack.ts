@@ -25,6 +25,7 @@ export class ComputeStack extends Stack {
         TABLE_NAME: props.table.tableName,
       },
     });
+    props.table.grantWriteData(createHandler);
 
     const findHandler = new NodejsFunction(this, 'FindHandler', {
       entry: './src/presentation/apiGwV2/userApiGwV2Presentation.ts',
@@ -33,6 +34,7 @@ export class ComputeStack extends Stack {
         TABLE_NAME: props.table.tableName,
       },
     });
+    props.table.grantReadData(findHandler);
 
     const updateHandler = new NodejsFunction(this, 'UpdateHandler', {
       entry: './src/presentation/apiGwV2/userApiGwV2Presentation.ts',
@@ -41,6 +43,7 @@ export class ComputeStack extends Stack {
         TABLE_NAME: props.table.tableName,
       },
     });
+    props.table.grantReadWriteData(updateHandler);
 
     const removeHandler = new NodejsFunction(this, 'RemoveHandler', {
       entry: './src/presentation/apiGwV2/userApiGwV2Presentation.ts',
@@ -49,6 +52,7 @@ export class ComputeStack extends Stack {
         TABLE_NAME: props.table.tableName,
       },
     });
+    props.table.grantWriteData(removeHandler);
 
     this.api = new HttpApi(this, 'Api');
     this.api.addRoutes({

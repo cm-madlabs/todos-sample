@@ -64,15 +64,12 @@ paths:
             examples:
               Update text:
                 value:
-                  id: 6543d183-bbfb-4b48-acdd-8abfa505d6ba
                   text: Buy apples
               Update checked:
                 value:
-                  id: 6543d183-bbfb-4b48-acdd-8abfa505d6ba
                   checked: true
               Update text & checked:
                 value:
-                  id: 6543d183-bbfb-4b48-acdd-8abfa505d6ba
                   text: Buy apples
                   checked: true
         description: Patch user properties to update.
