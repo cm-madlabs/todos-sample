@@ -15,7 +15,7 @@ export class PipelineStack extends Stack {
             connectionArn: process.env.REPO_CONNECTION_ARN!,
           }
         ),
-        commands: ['npm ci', 'npm run synth'],
+        commands: ['npm install -g npm@7.14.0', 'npm ci', 'npm run synth'],
       }),
     });
 
