@@ -7,16 +7,17 @@
     "lint": "gts lint",
     "clean": "gts clean",
     "compile": "tsc",
-    "fix": "gts fix"
+    "fix": "gts fix",
+    "synth": "cdk synth"
   },
   "devDependencies": {
-    "@aws-cdk/assert": "1.115.0",
+    "@aws-cdk/assert": "1.116.0",
     "@types/aws-lambda": "^8.10.81",
     "@types/jest": "^26.0.10",
     "@types/node": "^14.11.2",
     "@types/uuid": "^8.3.1",
     "@types/validator": "^13.6.3",
-    "aws-cdk": "1.115.0",
+    "aws-cdk": "1.116.0",
     "aws-sdk-client-mock": "^0.5.3",
     "gts": "^3.1.0",
     "jest": "^26.6.3",
@@ -25,10 +26,15 @@
     "ts-jest": "^26.5.6",
     "ts-node": "^9.0.0",
     "ttypescript": "^1.5.12",
-    "typescript": "^4.3.5"
+    "typescript": "^4.3.5",
+    "@aws-cdk/pipelines": "1.116.0",
+    "@aws-cdk/aws-apigatewayv2": "1.116.0",
+    "@aws-cdk/aws-apigatewayv2-integrations": "1.116.0",
+    "@aws-cdk/aws-lambda-nodejs": "1.116.0",
+    "@aws-cdk/aws-dynamodb": "1.116.0"
   },
   "dependencies": {
-    "@aws-cdk/core": "1.115.0",
+    "@aws-cdk/core": "1.116.0",
     "@aws-sdk/client-dynamodb": "^3.23.0",
     "@aws-sdk/lib-dynamodb": "^3.23.0",
     "source-map-support": "^0.5.16",
