@@ -131,8 +131,13 @@ describe('todoDataStore', () => {
       Key: {
         id,
       },
+      ExpressionAttributeNames: {
+        '#checked': 'checked',
+        '#text': 'text',
+        '#updatedAt': 'updatedAt',
+      },
       UpdateExpression:
-        'set text = :text, checked = :checked, updatedAt = :updatedAt',
+        'set #text = :text, #checked = :checked, #updatedAt = :updatedAt',
       ExpressionAttributeValues: {
         ':checked': checked,
         ':text': text,
